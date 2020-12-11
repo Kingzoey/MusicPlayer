@@ -1,4 +1,5 @@
 <template>
+<div class="player">
     <a-layout-footer style="text-align: left" >
     <a-row>
     <a-col :span="1"></a-col>
@@ -35,7 +36,12 @@
 
     </a-row>
     </a-layout-footer>
+</div>
 
+    <a-layout-footer :style="{background: '#fff'}">
+    </a-layout-footer>
+    <a-layout-footer :style="{background: '#fff'}">
+    </a-layout-footer>
 
    <a-drawer
     title="播放器"
@@ -152,4 +158,11 @@ export default {
     }
   }
 }
+.player
+{
+  position:fixed; bottom:0; 
+  left: 0;
+  right: 0;
+} 
+
 </style>

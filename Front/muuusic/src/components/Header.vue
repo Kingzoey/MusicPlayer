@@ -1,4 +1,5 @@
 <template>
+  <a-affix :offset-top=0>
   <a-page-header
     style="background-color: #ffffff; border: 1px solid rgb(235, 237, 240)"
     title="音乐"
@@ -17,6 +18,7 @@
       </a-button>
     </template>
   </a-page-header>
+  </a-affix>
  <a-drawer
     title="登录"
     :placement="placement"
