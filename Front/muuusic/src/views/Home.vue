@@ -38,9 +38,9 @@
 
 <br />
 
-<a-statistic title="Publish Day" :value="2000" class="demo-class">
+<a-statistic title="Publish Day" :value="2" class="demo-class">
         <template #suffix>
-          <span> /9 / 10</span>
+          <span>012 /9 / 10</span>
         </template>
       </a-statistic>
 </div>
@@ -158,6 +158,7 @@ export default {
   display: flex;
   text-align: left;
   line-height: 100px;
+  
   width:100%;
    .content{
     flex:1;
@@ -184,6 +185,9 @@ export default {
 .comments {
   text-align: left;
   width: 1200px;
+}
+.content{
+   margin-left: 5px;
 }
 
 </style>
