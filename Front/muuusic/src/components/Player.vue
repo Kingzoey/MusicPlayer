@@ -1,5 +1,4 @@
 <template>
-
     <a-layout-footer style="text-align: left" >
     <a-row>
     <a-col :span="1"></a-col>

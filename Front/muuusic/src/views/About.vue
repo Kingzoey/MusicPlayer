@@ -1,54 +1,47 @@
 <template>
 
+
   <a-affix :offset-top=0>
     <Header msg="Home"/>
   </a-affix>
 
-<a-row class="Rowfirst" align="left" gutter="20">
-
-<a-col span="5">
+<a-layout id="components-layout-demo-side" style="min-height: 100vh">
+ <a-layout-sider v-model:collapsed="collapsed" collapsible collapsedWidth:0>
   <Menu msg="Home"/>
-</a-col>
+</a-layout-sider>
 
- <a-col span="10">
+    <a-layout>
+    <a-layout-content style="margin: 0 16px">
   <a-carousel autoplay>
     <div><h3>1</h3></div>
     <div><h3>2</h3></div>
     <div><h3>3</h3></div>
     <div><h3>4</h3></div>
   </a-carousel>
-</a-col>
+</a-layout-content>
+</a-layout>
 
-<a-col span="2">
 <a-statistic title="Feedback" :value="1128" style="margin-right: 10px">
   <template #suffix>
     <like-outlined />
   </template>
 </a-statistic>
-</a-col>
 
-<br/>
 
-<a-col span="2">
 <a-statistic title="Liked" :value="93" class="demo-class">
         <template #suffix>
           <span> / 100</span>
         </template>
       </a-statistic>
-</a-col>
 
-<a-divider />
 
-    <a href="#">Link</a>
-
-</a-row>
-
+</a-layout>
  
-<div class="player">
+
   <a-affix :offset-bottom=0>
     <Player msg="Player"/>
   </a-affix>
-</div>
+
 
 </template>
 
@@ -83,10 +76,10 @@ export default {
   color: #fff;
 }
 
-.player
-{
-  position:fixed; bottom:0; 
-  left: 0;
-  right: 0;
-} 
+#components-layout-demo-side {
+  height: 32px;
+  background: rgba(255, 255, 255, 0);
+  margin: 16px;
+}
+
 </style>

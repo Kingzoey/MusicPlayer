@@ -1,6 +1,6 @@
 <template>
   <a-page-header
-    style="border: 1px solid rgb(235, 237, 240)"
+    style="background-color: #ffffff; border: 1px solid rgb(235, 237, 240)"
     title="音乐"
     sub-title="音乐属于所有人"
     @back="() => null"
