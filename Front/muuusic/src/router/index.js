@@ -29,6 +29,27 @@ const routes = [
     path: '/announcement',
     name: 'Announcement',
     component: () => import('../views/Announcement.vue')
+  },
+  {
+    path: '/themeconfig',
+    name: 'Themeconfig',
+    component: () => import('../views/ThemeConfig.vue')
+  },
+  {
+    path: '/musicconfig',
+    name: 'Musicconfig',
+    component: () => import('../views/MusicConfig.vue')
+  },
+
+  {
+    path: '/personalconfig',
+    name: 'Personalconfig',
+    component: () => import('../views/PersonalConfig.vue')
+  },
+  {
+    path: '/chatconfig',
+    name: 'Chatconfig',
+    component: () => import('../views/ChatConfig.vue')
   }
 ]
 

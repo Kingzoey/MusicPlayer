@@ -41,14 +41,15 @@
         <template #title>
           <span><AppstoreOutlined /><span>设置</span></span>
         </template>
-        <a-menu-item key="9">主题设置</a-menu-item>
-        <a-menu-item key="10">音乐设置</a-menu-item>
+        <a-menu-item key="9">主题设置<router-link to= Themeconfig></router-link></a-menu-item>
+        
+        <a-menu-item key="10">音乐设置<router-link to= Musicconfig></router-link></a-menu-item>
         <a-sub-menu key="sub3" title="个人空间">
           <a-menu-item key="11">
-            个人信息
+            个人信息<router-link to= Personalconfig></router-link>
           </a-menu-item>
           <a-menu-item key="12">
-            收信偏好
+            收信偏好<router-link to= Chatconfig></router-link>
           </a-menu-item>
         </a-sub-menu>
       </a-sub-menu>
