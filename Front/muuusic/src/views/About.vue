@@ -12,7 +12,7 @@
 
 <div class="progressrow">
   <div class="circle">
-  <a-space direction="vertical" size="large">
+  <a-space direction="vertical" size="middle">
 
   <a-card hoverable style="width: 450px">
     <template #cover>
@@ -27,7 +27,7 @@
       <edit-outlined key="edit" />
       <ellipsis-outlined key="ellipsis" />
     </template>
-    <a-card-meta title="Card title" description="This is the description">
+    <a-card-meta title="Name" description="This is the description">
       <template #avatar>
         <a-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
       </template>
@@ -105,14 +105,16 @@
 import Header from '@/components/Header.vue'
 import Menu from '@/components/Menu.vue'
 import Player from '@/components/Player.vue'
-import { LikeOutlined } from '@ant-design/icons-vue';
+import { SettingOutlined, EditOutlined, EllipsisOutlined} from '@ant-design/icons-vue';
 export default {
   name: 'Home',
   components: {
     Header,
     Menu,
     Player,
-    LikeOutlined
+    SettingOutlined,
+    EditOutlined,
+    EllipsisOutlined,
   }
 }
 </script>
@@ -136,16 +138,6 @@ export default {
 .circle{
   margin-left: 5px;
   width: 500px;
-}
-
-.functions{
-  display: flex;
-  text-align: left;
-  line-height: 20px;
-  width:100%;
-  .content{
-    flex:1;
-  }
 }
 
 .progressrow{

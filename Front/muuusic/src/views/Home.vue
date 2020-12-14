@@ -1,7 +1,7 @@
 <template>
 
 
-  <Header msg="Home"/>
+<Header msg="Home"/>
 
 <div class="functions">
 

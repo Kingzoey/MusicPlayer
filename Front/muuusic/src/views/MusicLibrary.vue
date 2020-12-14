@@ -1,13 +1,16 @@
 <template>
-  <div class="about">
-    <a-affix :offset-top=0>
-    <Header msg="Home"/>
-    </a-affix>
-    <Menu msg="About"/>
-    <a-affix :offset-bottom=0>
-    <Player msg="Player"/>
-    </a-affix>
-  </div>
+
+<Header/>
+
+<div class="functions">
+
+  <Menu/>
+
+</div>
+
+  <Player/>
+
+
 </template>
 
 <script>
@@ -25,3 +28,17 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+.functions{
+  display: flex;
+  text-align: left;
+  line-height: 20px;
+  width:100%;
+  .content{
+    flex:1;
+  }
+}
+
+</style>

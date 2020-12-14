@@ -16,14 +16,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/signin',
-    name: 'Signin',
-    component: () => import('../views/Signin.vue')
+    path: '/musiclibrary',
+    name: 'Musiclibrary',
+    component: () => import('../views/MusicLibrary.vue')
   },
   {
-    path: '/register',
-    name: 'Register',
-    component: () => import('../views/Register.vue')
+    path: '/chatroom',
+    name: 'Chatroom',
+    component: () => import('../views/ChatRoom.vue')
   }
 ]
 

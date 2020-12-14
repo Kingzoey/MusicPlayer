@@ -26,6 +26,7 @@
       <a-menu-item key="4">
         <InboxOutlined />
         <span>乐库</span>
+        <router-link to= Musiclibrary></router-link>
       </a-menu-item>
       <a-sub-menu key="sub1">
         <template #title>
@@ -33,7 +34,7 @@
         </template>
         <a-menu-item key="5">评论</a-menu-item>
         <a-menu-item key="6">回复</a-menu-item>
-        <a-menu-item key="7">私信</a-menu-item>
+        <a-menu-item key="7">私信<router-link to= Chatroom></router-link></a-menu-item>
         <a-menu-item key="8">公告</a-menu-item>
       </a-sub-menu>
       <a-sub-menu key="sub2">

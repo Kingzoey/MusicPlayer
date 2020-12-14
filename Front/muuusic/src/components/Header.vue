@@ -36,7 +36,7 @@
     </a-input>
     <br />
     <br />
-    <a-input-password v-model:value="value" placeholder=" 你的密码" />
+    <a-input-password v-model:value="password" placeholder=" 你的密码" />
     <br />
     <br />
     <a-button type="primary" :loading="iconLoading" @click="enterIconLoading" block>
@@ -59,9 +59,13 @@
         </a-tooltip>
       </template>
     </a-input>
+
     <br />
     <br />
-    <a-input-password v-model:value="value" placeholder=" 你的密码" />
+    <a-input-password v-model:value="password" placeholder=" 你的密码" />
+    <br />
+    <br />
+    <a-input-password v-model:value="passwordcheck" placeholder=" 再次确认密码" />
     <br />
     <br />
     <a-button type="primary" :loading="iconLoading" @click="enterIconLoading" block>
@@ -100,6 +104,8 @@ export default {
       visibleDonate: false,
       placement: 'right',
       userName: '',
+      password: '',
+      passwordcheck: '',
       iconLoading: false,
     }
   },
