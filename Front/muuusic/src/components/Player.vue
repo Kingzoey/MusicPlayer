@@ -38,9 +38,9 @@
     </a-layout-footer>
 </div>
 
-    <a-layout-footer :style="{background: '#fff'}">
+    <a-layout-footer :style="{background: 'rgba(255,255,255,0)'}" >
     </a-layout-footer>
-    <a-layout-footer :style="{background: '#fff'}">
+    <a-layout-footer :style="{background: 'rgba(255,255,255,0)'}" >
     </a-layout-footer>
 
    <a-drawer
@@ -105,7 +105,21 @@ export default {
       userName: '',
       iconLoading: false,
       percent: 0,
+      playertheme:false
     }
+  },
+  created(){
+    this.playertheme=this.$store.state.theme;
+  },
+  computed: {
+    isFollow () {
+      return this.$store.state.theme;　　//需要监听的数据
+    }
+  },
+  watch: {
+    isFollow(newVal,oldVal){
+      this.playertheme=this.$store.state.theme;
+    },
   },
   methods: {
     play() {

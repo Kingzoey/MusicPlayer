@@ -1,11 +1,11 @@
 <template>
   <a-affix :offset-top=0>
   <a-page-header
-    style="background-color: #ffffff; border: 1px solid rgb(235, 237, 240)"
+    style="rgba(255, 255, 255, 1); background-color:#ffffff; border: 1px solid rgb(235, 237, 240)" 
     title="音乐"
     sub-title="音乐属于所有人"
     @back="() => null"
-  >
+  v-if="headertheme!='dark'">
    <template #extra>
       <a-button key="3" @click="showDrawerSignin">
         登录
@@ -18,7 +18,26 @@
       </a-button>
     </template>
   </a-page-header>
+    <a-page-header
+    style="color: rgba(255, 255, 255, 1);background-color:#000000; border: 1px solid rgb(25,25,112)" 
+    title="音乐"
+    sub-title="音乐属于所有人"
+    @back="() => null"
+  v-else >
+   <template #extra>
+      <a-button key="3" @click="showDrawerSignin" ghost>
+        登录
+      </a-button>
+      <a-button key="2" @click="showDrawerRegister" ghost>
+        注册
+      </a-button>
+      <a-button key="1" type="primary" @click="showDrawerDonate" ghost>
+        捐赠
+      </a-button>
+    </template>
+  </a-page-header>
   </a-affix>
+
  <a-drawer
     title="登录"
     :placement="placement"
@@ -107,7 +126,21 @@ export default {
       password: '',
       passwordcheck: '',
       iconLoading: false,
+      headertheme:'',
     }
+  },
+  created(){
+    this.headertheme=this.$store.state.theme;
+  },
+  computed: {
+    isFollow () {
+      return this.$store.state.theme;　　//需要监听的数据
+    }
+  },
+  watch: {
+    isFollow(newVal,oldVal){
+      this.headertheme=this.$store.state.theme;
+    },
   },
   methods: {
     showDrawerSignin() {
@@ -149,10 +182,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
+      
 #nav {
   padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;

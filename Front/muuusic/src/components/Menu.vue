@@ -5,7 +5,7 @@
       v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
       mode="inline"
-      theme="light"
+      :theme="menutheme"
       :inline-collapsed="collapsed"
     >
       <a-menu-item key="1"  @click="toggleCollapsed">
@@ -83,11 +83,25 @@ export default {
       selectedKeys: ['1'],
       openKeys: ['sub1'],
       preOpenKeys: ['sub1'],
+      menutheme:'',
     };
+  },
+  created(){
+
+    this.menutheme=this.$store.state.theme;
+
+  },
+  computed: {
+    isFollow () {
+      return this.$store.state.theme;　　//需要监听的数据
+    }
   },
   watch: {
     openKeys(val, oldVal) {
       this.preOpenKeys = oldVal;
+    },
+    isFollow(newVal,oldVal){
+      this.menutheme=this.$store.state.theme;
     },
   },
   methods: {
@@ -95,6 +109,7 @@ export default {
       this.collapsed = !this.collapsed;
       this.openKeys = this.collapsed ? [] : this.preOpenKeys;
     },
+    
   },
 };
 </script>
