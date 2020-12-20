@@ -87,9 +87,10 @@ export default {
     };
   },
   created(){
-
     this.menutheme=this.$store.state.theme;
-
+    this.collapsed=this.$store.state.menucollapsed;
+    this.openKeys= this.$store.state.openKeys;
+    this.preopenKeys= this.$store.state.preopenKeys;
   },
   computed: {
     isFollow () {
@@ -99,6 +100,7 @@ export default {
   watch: {
     openKeys(val, oldVal) {
       this.preOpenKeys = oldVal;
+      this.$store.dispatch('setpreMenu',this.openKeys, this.preOpenKeys);
     },
     isFollow(newVal,oldVal){
       this.menutheme=this.$store.state.theme;
@@ -108,6 +110,7 @@ export default {
     toggleCollapsed() {
       this.collapsed = !this.collapsed;
       this.openKeys = this.collapsed ? [] : this.preOpenKeys;
+      this.$store.dispatch('setMenu', this.collapsed);
     },
     
   },
