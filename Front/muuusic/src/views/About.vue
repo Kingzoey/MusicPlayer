@@ -14,7 +14,7 @@
   <div class="circle">
   <a-space direction="vertical" size="middle">
 
-  <a-card hoverable style="width: 450px">
+  <a-card hoverable style="width: 450px; background: rgba(0,0,0,.01);border: rgba(255,255,255,.8);" >
     <template #cover>
       <img
         alt="example"
@@ -22,6 +22,7 @@
         height="70"
       />
     </template>
+
     <template class="ant-card-actions" #actions>
       <setting-outlined key="setting" />
       <edit-outlined key="edit" />
@@ -51,35 +52,35 @@
     <a-progress :percent="50" :show-info="false" />
     <br/>
     <br/>
-    <a-descriptions title="User Info" layout="vertical" size="small" bordered>
-    <a-descriptions-item label="Product">
+    <a-descriptions title="User Info" layout="vertical" size="small" bordered >
+    <a-descriptions-item label="Product" style="background-color: rgba(0,0,0,.01)">
       Cloud Database
     </a-descriptions-item>
-    <a-descriptions-item label="Billing Mode">
+    <a-descriptions-item label="Billing Mode" style="background-color: rgba(0,0,0,.01)">
       Prepaid
     </a-descriptions-item>
-    <a-descriptions-item label="Automatic Renewal">
+    <a-descriptions-item label="Automatic Renewal" style="background-color: rgba(0,0,0,.01)">
       YES
     </a-descriptions-item>
-    <a-descriptions-item label="Order time">
+    <a-descriptions-item label="Order time" style="background-color: rgba(0,0,0,.01)">
       2018-04-24 18:00:00
     </a-descriptions-item>
-    <a-descriptions-item label="Usage Time" :span="2">
+    <a-descriptions-item label="Usage Time" :span="2" style="background-color: rgba(0,0,0,.01)">
       2019-04-24 18:00:00
     </a-descriptions-item>
-    <a-descriptions-item label="Status" :span="3">
+    <a-descriptions-item label="Status" :span="3" style="background-color: rgba(0,0,0,.01)">
       <a-badge status="processing" text="Running" />
     </a-descriptions-item>
-    <a-descriptions-item label="Negotiated Amount">
+    <a-descriptions-item label="Negotiated Amount" style="background-color: rgba(0,0,0,.01)">
       $80.00
     </a-descriptions-item>
-    <a-descriptions-item label="Discount">
+    <a-descriptions-item label="Discount" style="background-color: rgba(0,0,0,.01)">
       $20.00
     </a-descriptions-item>
-    <a-descriptions-item label="Official Receipts">
+    <a-descriptions-item label="Official Receipts" style="background-color: rgba(0,0,0,.01)">
       $60.00
     </a-descriptions-item>
-    <a-descriptions-item label="Config Info">
+    <a-descriptions-item label="Config Info" style="background-color: rgba(0,0,0,.01)">
       Data disk type: MongoDB
       <br />
       Database version: 3.4
@@ -149,8 +150,14 @@ export default {
   width:100%;
   .progress{
     flex:1;
+    
   }
 }
-
+.ant-card-actions{
+  background-color: rgba(0,0,0,1);
+  background:rgba(0,0,0,1);
+  color: rgba(0,0,0,.1);
+  border-top: 1px solid rgba(0,0,0,.1);
+}
 
 </style>

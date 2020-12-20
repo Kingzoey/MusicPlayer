@@ -1,6 +1,6 @@
 <template>
-<div class="player">
-    <a-layout-footer style="text-align: left" >
+<div :class="playertheme == '0'?'player':'player-dark'">
+    <a-layout-footer :style="{background: 'rgba(0,0,0,.45)'}">
     <a-row>
     <a-col :span="1"></a-col>
     <a-space>
@@ -36,6 +36,9 @@
 
     </a-row>
     </a-layout-footer>
+
+
+    
 </div>
 
     <a-layout-footer :style="{background: 'rgba(255,255,255,0)'}" >
@@ -109,16 +112,17 @@ export default {
     }
   },
   created(){
-    this.playertheme=this.$store.state.theme;
+    this.playertheme=this.$store.state.dark;
   },
   computed: {
     isFollow () {
-      return this.$store.state.theme;　　//需要监听的数据
+      return this.$store.state.dark;　　//需要监听的数据
     }
   },
   watch: {
     isFollow(newVal,oldVal){
-      this.playertheme=this.$store.state.theme;
+      this.playertheme=this.$store.state.dark;
+
     },
   },
   methods: {
@@ -177,6 +181,13 @@ export default {
   position:fixed; bottom:0; 
   left: 0;
   right: 0;
+  background:#f5f5f5;
 } 
-
+.player-dark
+{
+  position:fixed; bottom:0; 
+  left: 0;
+  right: 0;
+  background:#434343;
+}
 </style>
