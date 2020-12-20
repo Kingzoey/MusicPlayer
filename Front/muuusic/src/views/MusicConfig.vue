@@ -6,6 +6,20 @@
 
   <Menu/>
 
+  <a-radio-group name="radioGroup" v-model:value="value">
+    <a-radio value="1">
+      列表播放
+    </a-radio>
+    <a-radio value="2">
+      单曲循环
+    </a-radio>
+    <a-radio value="3">
+      列表循环
+    </a-radio>
+    <a-radio value="4">
+      乱序播放
+    </a-radio>
+  </a-radio-group>
 </div>
 
   <Player/>
@@ -25,7 +39,12 @@ export default {
     Header,
     Menu,
     Player
-  }
+  },
+    data() {
+    return {
+      value: '1',
+    };
+  },
 }
 </script>
 

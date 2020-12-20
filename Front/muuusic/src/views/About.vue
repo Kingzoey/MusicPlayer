@@ -14,7 +14,7 @@
   <div class="circle">
   <a-space direction="vertical" size="middle">
 
-  <a-card hoverable style="width: 450px; background: rgba(0,0,0,.01);border: rgba(255,255,255,.8);" >
+  <a-card hoverable style="width: 450px; background: rgba(0,0,0,.05);border: rgba(0,0,0,.8);" >
     <template #cover>
       <img
         alt="example"
