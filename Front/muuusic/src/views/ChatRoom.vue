@@ -8,7 +8,7 @@
   <div class="lists">
 
     <a-input-search
-      v-model:value="value"
+      v-model:value="searchvalue"
       placeholder="input search text"
       enter-button
       @search="onSearch"
@@ -32,7 +32,7 @@
     </template>
   </a-list>
   <div class="pagination">   
-    <a-pagination simple v-model:current="current" :total="50" hideOnSinglePage size="small"/>
+    <a-pagination simple v-model:current="current" :total="50" hideOnSinglePage size="small" style="color:rgba(0,0,0,1);"/>
   </div>
   </div>
 
@@ -44,11 +44,14 @@
   </a-tabs>
 
   <a-textarea v-model:value="contexts" placeholder="Contexts" :auto-size="{ minRows: 15, maxRows:20  }" readonly/>
-  <a-textarea v-model:value="words" showCount :maxlength="100" :auto-size="{ minRows: 2, maxRows:3  }" />
+  <a-textarea v-model:value="words" showCount :maxlength="100" :auto-size="{ minRows: 2, maxRows:3  }"/>
         <a-button type="primary" block>
           发送
         </a-button>
-        <a-button type="dashed" block>
+        <a-button type="dashed" block v-if="!dark">
+          清空
+        </a-button>
+        <a-button type="dashed" block ghost v-else>
           清空
         </a-button>
   </div>
@@ -106,8 +109,13 @@ export default {
       newTabIndex: 0,
       current: 1,
       contexts:'',
+      searchvalue:'',
       words:'',
-    };
+      dark:false
+    }
+  },
+  created(){
+    this.dark=this.$store.state.dark;
   },
   methods: {
     callback(key) {
@@ -176,5 +184,7 @@ export default {
   position: absolute; 
   bottom: 0; 
 }
-
+/deep/.ant-input {
+  background-color: rgba(0,0,0,0.01);
+}
 </style>

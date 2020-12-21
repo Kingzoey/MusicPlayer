@@ -52,6 +52,7 @@
     :closable="false"
     :visible="visible"
     @close="onClose"
+    v-if="!playertheme"
   >
   <a-space>
     <a-progress 
@@ -75,6 +76,39 @@
     <a-empty />
     <a-empty />
   </a-drawer>
+     <a-drawer
+    title="播放器"
+    :placement="placement"
+    :closable="false"
+    :visible="visible"
+    @close="onClose"
+    :drawerStyle="{background: 'rgba(0,0,0,.7)'}"
+    :headerStyle="{background: 'rgba(0,0,0,.5)'}"
+    v-else
+  >
+  <a-space>
+    <a-progress 
+    type="circle"
+      :stroke-color="{
+        '0%': '#108ee9',
+        '100%': '#87d068',
+      }"
+      :percent="percent"
+    />
+    <a-button-group>
+      <a-button @click="decline" ghost>
+        <template #icon><BackwardOutlined /></template>
+      </a-button>
+      <a-button @click="increase" ghost>
+        <template #icon><ForwardOutlined /></template>
+      </a-button>
+    </a-button-group>
+  </a-space>
+    <a-empty />
+    <a-empty />
+    <a-empty />
+  </a-drawer>
+
 </template>
 
 <script>

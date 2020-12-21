@@ -22,17 +22,16 @@
         height="70"
       />
     </template>
-
-    <template class="ant-card-actions" #actions>
-      <setting-outlined key="setting" />
-      <edit-outlined key="edit" />
-      <ellipsis-outlined key="ellipsis" />
-    </template>
     <a-card-meta title="Name" description="This is the description">
       <template #avatar>
         <a-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
       </template>
     </a-card-meta>
+    <div class="buttons">
+    <a-button primary><setting-outlined key="setting" /></a-button>
+    <a-button primary><edit-outlined key="edit" /></a-button>
+    <a-button primary><ellipsis-outlined key="ellipsis" /></a-button>
+    </div>
   </a-card>
 
 
@@ -153,11 +152,9 @@ export default {
     
   }
 }
-.ant-card-actions{
-  background-color: rgba(0,0,0,1);
-  background:rgba(0,0,0,1);
-  color: rgba(0,0,0,.1);
-  border-top: 1px solid rgba(0,0,0,.1);
+.buttons{
+ 
+  left: 0;
+  right: 0;
 }
-
 </style>

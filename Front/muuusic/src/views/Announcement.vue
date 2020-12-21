@@ -25,7 +25,7 @@
     </template>
   </a-list>
   <div class="pagination">   
-    <a-pagination simple v-model:current="current" :total="50" hideOnSinglePage size="small"/>
+    <a-pagination simple v-model:current="current" :total="50" hideOnSinglePage size="small" style="color:rgba(0,0,0,1);"/>
   </div>
   </div>
 
@@ -33,26 +33,26 @@
   <div class="chat">
 
 
-  <a-textarea v-model:value="contexts" placeholder="Contexts" :auto-size="{ minRows: 18, maxRows:20  }" readonly/>
+  <a-textarea v-model:value="contexts" placeholder="Contexts" :auto-size="{ minRows: 18, maxRows:20  }" style="color:rgba(0,0,0,1);" readonly/>
   <br/><br/>
   <a-row>
     <a-col :span="12">
     <a-space size="large">
-  <l>您对该次活动的评价：</l>
+  <l style="color:rgba(0,0,0,1);">您对该次活动的评价：</l>
   <a-rate v-model:value="stars" allow-half />
 
-    <SmileOutlined v-if="stars>=2.5" />
-    <FrownOutlined v-else />
+    <SmileOutlined style="color:rgba(0,0,0,1);" v-if="stars>=2.5" />
+    <FrownOutlined style="color:rgba(0,0,0,1);" v-else />
 
     </a-space>
     </a-col>
     <a-col :span="12">
    <a-space size="large">
-  <l>全体用户对该次活动的评价：</l>
+  <l style="color:rgba(0,0,0,1);">全体用户对该次活动的评价：</l>
   <a-rate v-model:value="allstars" allow-half />
 
-    <SmileOutlined v-if="allstars>=2.5" />
-    <FrownOutlined v-else />
+    <SmileOutlined style="color:rgba(0,0,0,1);" v-if="allstars>=2.5" />
+    <FrownOutlined style="color:rgba(0,0,0,1);" v-else />
 
   </a-space>
     </a-col>
@@ -61,7 +61,10 @@
         <a-button type="primary" block>
           确认
         </a-button>
-        <a-button type="dashed" block>
+        <a-button type="dashed" block v-if="!dark">
+          删除
+        </a-button>
+        <a-button type="dashed" block ghost v-else>
           删除
         </a-button>
   </div>
@@ -112,11 +115,15 @@ export default {
     return {
       messagelist,
       current: 1,
-      contexts:'',
+      contexts:'asdasdasdasd',
       words:'',
       stars: 2.5,
       allstars: 2.5,
-    };
+      dark:false
+    }
+  },
+  created(){
+    this.dark=this.$store.state.dark;
   },
   methods: {
 
@@ -153,5 +160,7 @@ export default {
   position: absolute; 
   bottom: 0; 
 }
-
+/deep/.ant-input {
+  background-color: rgba(0,0,0,0.01);
+}
 </style>

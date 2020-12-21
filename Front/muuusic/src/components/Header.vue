@@ -44,9 +44,9 @@
     :closable="false"
     :visible="visibleSignin"
     @close="onSigninClose"
-  >
+    v-if="headertheme!='dark'">
   <a-input placeholder=" 你的用户名" v-model:value="userName" ref="userNameInput">
-      <template #prefix><user-outlined type="user"/></template>
+      <template #prefix><user-outlined type="user" style="color: rgba(0,0,0,.45)"/></template>
       <template #suffix>
         <a-tooltip title="必要信息">
           <info-circle-outlined style="color: rgba(0,0,0,.45)" />
@@ -55,7 +55,33 @@
     </a-input>
     <br />
     <br />
-    <a-input-password v-model:value="password" placeholder=" 你的密码" />
+    <a-input-password v-model:value="password" placeholder="你的密码"/>
+    <br />
+    <br />
+    <a-button type="primary" :loading="iconLoading" @click="enterIconLoading" block>
+    提交
+    </a-button>
+  </a-drawer>
+ <a-drawer
+    title="登录"
+    :placement="placement"
+    :closable="false"
+    :visible="visibleSignin"
+    @close="onSigninClose"
+    :drawerStyle="{background: 'rgba(0,0,0,.7)'}"
+    :headerStyle="{background: 'rgba(0,0,0,.5)'}"
+    v-else>
+  <a-input  placeholder=" 你的用户名" v-model:value="userName" ref="userNameInput" style="background-color:rgba(0,0,0,.25);">
+      <template #prefix><user-outlined type="user" style="color: rgba(0,0,0,.25)"/></template>
+      <template #suffix>
+        <a-tooltip title="必要信息">
+          <info-circle-outlined style="color: rgba(0,0,0,.45)" />
+        </a-tooltip>
+      </template>
+    </a-input>
+    <br />
+    <br />
+    <a-input-password v-model:value="password" placeholder="你的密码" style="background-color:rgba(0,0,0,.25);" />
     <br />
     <br />
     <a-button type="primary" :loading="iconLoading" @click="enterIconLoading" block>
@@ -69,6 +95,7 @@
     :closable="false"
     :visible="visibleRegister"
     @close="onRegisterClose"
+    v-if="headertheme!='dark'"
   >
   <a-input placeholder=" 你的用户名" v-model:value="userName" ref="userNameInput">
       <template #prefix><user-outlined type="user"/></template>
@@ -81,10 +108,41 @@
 
     <br />
     <br />
-    <a-input-password v-model:value="password" placeholder=" 你的密码" />
+    <a-input-password v-model:value="password" placeholder=" 你的密码"/>
     <br />
     <br />
-    <a-input-password v-model:value="passwordcheck" placeholder=" 再次确认密码" />
+    <a-input-password v-model:value="passwordcheck" placeholder=" 再次确认密码"/>
+    <br />
+    <br />
+    <a-button type="primary" :loading="iconLoading" @click="enterIconLoading" block>
+    提交
+    </a-button>
+  </a-drawer>
+   <a-drawer
+    title="注册"
+    :placement="placement"
+    :closable="false"
+    :visible="visibleRegister"
+    @close="onRegisterClose"
+    v-else
+    :drawerStyle="{background: 'rgba(0,0,0,.7)'}"
+    :headerStyle="{background: 'rgba(0,0,0,.5)'}"
+  >
+  <a-input placeholder=" 你的用户名" v-model:value="userName" ref="userNameInput" style="background-color:rgba(0,0,0,.25);">
+      <template #prefix><user-outlined type="user"/></template>
+      <template #suffix>
+        <a-tooltip title="必要信息">
+          <info-circle-outlined style="color: rgba(0,0,0,.45)" />
+        </a-tooltip>
+      </template>
+    </a-input>
+
+    <br />
+    <br />
+    <a-input-password v-model:value="password" placeholder=" 你的密码" style="background-color:rgba(0,0,0,.25);" />
+    <br />
+    <br />
+    <a-input-password v-model:value="passwordcheck" placeholder=" 再次确认密码" style="background-color:rgba(0,0,0,.25);" />
     <br />
     <br />
     <a-button type="primary" :loading="iconLoading" @click="enterIconLoading" block>
@@ -98,6 +156,19 @@
     :closable="false"
     :visible="visibleDonate"
     @close="onDonateClose"
+    v-if="headertheme!='dark'"
+  >
+  <img alt="Donate" src="../assets/money.png" height="230" width="200" >
+  </a-drawer>
+  <a-drawer
+    title="捐赠"
+    :placement="placement"
+    :closable="false"
+    :visible="visibleDonate"
+    @close="onDonateClose"
+    v-else
+    :drawerStyle="{background: 'rgba(0,0,0,.7)'}"
+    :headerStyle="{background: 'rgba(0,0,0,.5)'}"
   >
   <img alt="Donate" src="../assets/money.png" height="230" width="200" >
   </a-drawer>
@@ -194,4 +265,9 @@ export default {
     }
   }
 }
+
+/deep/.ant-input {
+  background-color: rgba(0,0,0,0.01);
+}
+
 </style>
