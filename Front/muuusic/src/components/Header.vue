@@ -46,10 +46,10 @@
     @close="onSigninClose"
     v-if="headertheme!='dark'">
   <a-input placeholder=" 你的用户名" v-model:value="userName" ref="userNameInput">
-      <template #prefix><user-outlined type="user" style="color: rgba(0,0,0,.45)"/></template>
+      <template #prefix><user-outlined type="user" /></template>
       <template #suffix>
         <a-tooltip title="必要信息">
-          <info-circle-outlined style="color: rgba(0,0,0,.45)" />
+          <info-circle-outlined  />
         </a-tooltip>
       </template>
     </a-input>
@@ -72,10 +72,10 @@
     :headerStyle="{background: 'rgba(0,0,0,.5)'}"
     v-else>
   <a-input  placeholder=" 你的用户名" v-model:value="userName" ref="userNameInput" style="background-color:rgba(0,0,0,.25);">
-      <template #prefix><user-outlined type="user" style="color: rgba(0,0,0,.25)"/></template>
+      <template #prefix><user-outlined type="user" /></template>
       <template #suffix>
         <a-tooltip title="必要信息">
-          <info-circle-outlined style="color: rgba(0,0,0,.45)" />
+          <info-circle-outlined  />
         </a-tooltip>
       </template>
     </a-input>

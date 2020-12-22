@@ -27,11 +27,11 @@
         <a-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
       </template>
     </a-card-meta>
-    <div class="buttons">
-    <a-button primary><setting-outlined key="setting" /></a-button>
-    <a-button primary><edit-outlined key="edit" /></a-button>
-    <a-button primary><ellipsis-outlined key="ellipsis" /></a-button>
-    </div>
+    <template class="ant-card-actions" #actions>
+      <setting-outlined key="setting" />
+      <edit-outlined key="edit" />
+      <ellipsis-outlined key="ellipsis" />
+    </template>
   </a-card>
 
 
@@ -117,7 +117,15 @@ export default {
     SettingOutlined,
     EditOutlined,
     EllipsisOutlined,
-  }
+  },
+  data() {
+    return {
+      dark:false
+    }
+  },
+  created(){
+    this.dark=this.$store.state.dark;
+  },
 }
 </script>
 
@@ -156,5 +164,8 @@ export default {
  
   left: 0;
   right: 0;
+}
+/deep/.ant-card-actions{
+  background-color:rgba(0,0,0,0.01);
 }
 </style>
