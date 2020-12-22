@@ -21,6 +21,21 @@ const routes = [
     component: () => import('../views/MusicLibrary.vue')
   },
   {
+    path: '/musiclibraryhome',
+    name: 'Musiclibraryhome',
+    component: () => import('../views/MusicLibraryHome.vue')
+  },
+  {
+    path: '/musiclibrarysearchthird',
+    name: 'Musiclibrarysearchthird',
+    component: () => import('../views/MusicLibrarySearchThird.vue')
+  },
+  {
+    path: '/musiclibraryuser',
+    name: 'Musiclibraryuser',
+    component: () => import('../views/MusicLibraryUser.vue')
+  },
+  {
     path: '/chatroom',
     name: 'Chatroom',
     component: () => import('../views/ChatRoom.vue')

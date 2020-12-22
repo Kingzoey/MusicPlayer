@@ -38,21 +38,27 @@
   <a-row>
     <a-col :span="12">
     <a-space size="large">
-  <l style="color:rgba(0,0,0,1);">您对该次活动的评价：</l>
+  <l style="color:rgba(0,0,0,1);" v-if="!dark">您对该次活动的评价：</l>
+  <l style="color:rgba(255,255,255,1);" v-else>您对该次活动的评价：</l>
   <a-rate v-model:value="stars" allow-half />
 
-    <SmileOutlined style="color:rgba(0,0,0,1);" v-if="stars>=2.5" />
-    <FrownOutlined style="color:rgba(0,0,0,1);" v-else />
+    <SmileOutlined style="color:rgba(0,0,0,1);" v-if="stars>=2.5&&!dark" />
+    <FrownOutlined style="color:rgba(0,0,0,1);" v-else-if="stars<2.5&&!dark" />
+    <SmileOutlined style="color:rgba(255,255,255,1);" v-if="stars>=2.5&&dark" />
+    <FrownOutlined style="color:rgba(255,255,255,1);" v-else/>
 
     </a-space>
     </a-col>
     <a-col :span="12">
    <a-space size="large">
-  <l style="color:rgba(0,0,0,1);">全体用户对该次活动的评价：</l>
+  <l style="color:rgba(0,0,0,1);" v-if="!dark">全体用户对该活动的评价：</l>
+  <l style="color:rgba(255,255,255,1);" v-else>全体用户对该活动的评价：</l>
   <a-rate v-model:value="allstars" allow-half />
 
-    <SmileOutlined style="color:rgba(0,0,0,1);" v-if="allstars>=2.5" />
-    <FrownOutlined style="color:rgba(0,0,0,1);" v-else />
+    <SmileOutlined style="color:rgba(0,0,0,1);" v-if="allstars>=2.5&&!dark" />
+    <FrownOutlined style="color:rgba(0,0,0,1);" v-else-if="allstars<2.5&&!dark" />
+    <SmileOutlined style="color:rgba(255,255,255,1);" v-if="allstars>=2.5&&dark" />
+    <FrownOutlined style="color:rgba(255,255,255,1);" v-else/>
 
   </a-space>
     </a-col>
@@ -115,11 +121,11 @@ export default {
     return {
       messagelist,
       current: 1,
-      contexts:'asdasdasdasd',
+      contexts:'你好',
       words:'',
       stars: 2.5,
       allstars: 2.5,
-      dark:false
+      dark:false,
     }
   },
   created(){
