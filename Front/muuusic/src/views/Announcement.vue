@@ -7,13 +7,6 @@
   <Menu/>
   <div class="lists">
 
-    <a-input-search
-      v-model:value="searchvalue"
-      placeholder="input search text"
-      enter-button
-      @search="onSearch"
-    />
-    <br /><br />
   <a-list item-layout="horizontal" :data-source="messagelist">
     <template #renderItem="{ item, index }">
       <a-list-item>
@@ -36,23 +29,49 @@
   </div>
   </div>
 
-  <div class="chat">
-  <a-tabs v-model:activeKey="activeKey" type="editable-card" @edit="onEdit">
-    <a-tab-pane v-for="pane in panes" :key="pane.key" :tab="pane.title" :closable="pane.closable">
-      {{ pane.content }}
-    </a-tab-pane>
-  </a-tabs>
 
-  <a-textarea v-model:value="contexts" placeholder="Contexts" :auto-size="{ minRows: 15, maxRows:20  }" readonly/>
-  <a-textarea v-model:value="words" showCount :maxlength="100" :auto-size="{ minRows: 2, maxRows:3  }"/>
+  <div class="chat">
+
+
+  <a-textarea v-model:value="contexts" placeholder="Contexts" :auto-size="{ minRows: 18, maxRows:20  }" style="color:rgba(0,0,0,1);" readonly/>
+  <br/><br/>
+  <a-row>
+    <a-col :span="12">
+    <a-space size="large">
+  <l style="color:rgba(0,0,0,1);" v-if="!dark">您对该次活动的评价：</l>
+  <l style="color:rgba(255,255,255,1);" v-else>您对该次活动的评价：</l>
+  <a-rate v-model:value="stars" allow-half />
+
+    <SmileOutlined style="color:rgba(0,0,0,1);" v-if="stars>=2.5&&!dark" />
+    <FrownOutlined style="color:rgba(0,0,0,1);" v-else-if="stars<2.5&&!dark" />
+    <SmileOutlined style="color:rgba(255,255,255,1);" v-if="stars>=2.5&&dark" />
+    <FrownOutlined style="color:rgba(255,255,255,1);" v-else/>
+
+    </a-space>
+    </a-col>
+    <a-col :span="12">
+   <a-space size="large">
+  <l style="color:rgba(0,0,0,1);" v-if="!dark">全体用户对该活动的评价：</l>
+  <l style="color:rgba(255,255,255,1);" v-else>全体用户对该活动的评价：</l>
+  <a-rate v-model:value="allstars" allow-half />
+
+    <SmileOutlined style="color:rgba(0,0,0,1);" v-if="allstars>=2.5&&!dark" />
+    <FrownOutlined style="color:rgba(0,0,0,1);" v-else-if="allstars<2.5&&!dark" />
+    <SmileOutlined style="color:rgba(255,255,255,1);" v-if="allstars>=2.5&&dark" />
+    <FrownOutlined style="color:rgba(255,255,255,1);" v-else/>
+
+  </a-space>
+    </a-col>
+  </a-row>
+  <br/>
         <a-button type="primary" block>
-          发送
+          确认
         </a-button>
         <a-button type="dashed" block v-if="!dark">
-          清空
+          删除
         </a-button>
         <a-button type="dashed" block ghost v-else>
-          清空
+          删除
         </a-button>
   </div>
 </div>
@@ -67,6 +86,7 @@
 import Header from '@/components/Header.vue'
 import Menu from '@/components/Menu.vue'
 import Player from '@/components/Player.vue'
+import { SmileOutlined ,FrownOutlined} from '@ant-design/icons-vue';
 
   const messagelist = [
   {
@@ -87,70 +107,32 @@ import Player from '@/components/Player.vue'
   },
 ];
 
-const panes = [
-      { title: 'Tab 1', content: 'Content of Tab 1', key: '1', closable: false },
-      { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
-      { title: 'Tab 3', content: 'Content of Tab 3', key: '3' },
-    ];
-
 export default {
 
   components: {
     Header,
     Menu,
     Player,
+    SmileOutlined,
+    FrownOutlined
   },
 
   data() {
     return {
       messagelist,
-      activeKey: panes[0].key,
-      panes,
-      newTabIndex: 0,
       current: 1,
-      contexts:'',
-      searchvalue:'',
+      contexts:'你好',
       words:'',
-      dark:false
+      stars: 2.5,
+      allstars: 2.5,
+      dark:false,
     }
   },
   created(){
     this.dark=this.$store.state.dark;
   },
   methods: {
-    callback(key) {
-      console.log(key);
-    },
-    onEdit(targetKey, action) {
-      console.log(targetKey, action);
-      this[action](targetKey);
-    },
-    add() {
-      const panes = this.panes;
-      const activeKey = `newTab${this.newTabIndex++}`;
-      panes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
-      this.panes = panes;
-      this.activeKey = activeKey;
-    },
-    remove(targetKey) {
-      let activeKey = this.activeKey;
-      let lastIndex;
-      this.panes.forEach((pane, i) => {
-        if (pane.key === targetKey) {
-          lastIndex = i - 1;
-        }
-      });
-      const panes = this.panes.filter(pane => pane.key !== targetKey);
-      if (panes.length && activeKey === targetKey) {
-        if (lastIndex >= 0) {
-          activeKey = panes[lastIndex].key;
-        } else {
-          activeKey = panes[0].key;
-        }
-      }
-      this.panes = panes;
-      this.activeKey = activeKey;
-    },
+
   }
 }
 </script>

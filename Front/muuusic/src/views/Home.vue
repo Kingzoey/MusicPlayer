@@ -10,7 +10,6 @@
 </div>
 
 <div class="content">
-
 <div class="carouselrow">
 <div class="carousel">
   <a-carousel autoplay>
@@ -64,7 +63,7 @@
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
             />
           </template>
-          <a-skeleton :loading="loading" active avatar>
+          <a-skeleton :loading="loading" :paragraph=0 :title=1 avatar>
             <a-list-item-meta :description="item.description">
               <template #title>
                 <a :href="item.href">{{ item.title }}</a>
@@ -188,6 +187,16 @@ export default {
 }
 .content{
    margin-left: 5px;
+}
+
+/deep/.ant-skeleton.ant-skeleton-active .ant-skeleton-content .ant-skeleton-title{
+  background:rgba(0,0,0,0.1);
+
+}
+/deep/.ant-skeleton.ant-skeleton-active .ant-skeleton-avatar
+{
+  background:rgba(0,0,0,0.1);
+
 }
 
 </style>
