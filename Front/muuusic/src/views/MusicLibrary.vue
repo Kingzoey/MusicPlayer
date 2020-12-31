@@ -5,33 +5,7 @@
 <div class="functions">
 
   <Menu/>
-  <div class="content" >
-  <a-row type="flex" justify="center" align="top">
-  <a-col :span="11">
-  <router-link to= Musiclibraryhome>
-  <a-button primary style="height:500px;width:300px;" v-if="!dark">
-    <HomeOutlined/>
-  </a-button>
-  <a-button primary ghost style="height:500px;width:300px;" v-else>
-    <HomeOutlined/>
-  </a-button>
-  </router-link>
-  </a-col>
- 
- <a-divider type="vertical" style="height:500px;"></a-divider>
 
- <a-col :span="11">
-  <router-link to= Musiclibraryuser>
-  <a-button primary style="height:500px;width:300px;" v-if="!dark">
-  <RadarChartOutlined/>
-  </a-button>
-  <a-button primary ghost style="height:500px;width:300px;" v-else>
-  <RadarChartOutlined/>
-  </a-button>
-  </router-link>
-  </a-col>
-  </a-row>
-  </div>
 </div>
 
   <Player/>
@@ -40,7 +14,7 @@
 </template>
 
 <script>
-import { RadarChartOutlined ,HomeOutlined} from '@ant-design/icons-vue';
+
 import Header from '@/components/Header.vue'
 import Menu from '@/components/Menu.vue'
 import Player from '@/components/Player.vue'
@@ -50,18 +24,8 @@ export default {
   components: {
     Header,
     Menu,
-    Player,
-    RadarChartOutlined,
-    HomeOutlined
-  },
-  data() {
-    return {
-      dark:false
-    }
-  },
-  created(){
-    this.dark=this.$store.state.dark;
-  },
+    Player
+  }
 }
 </script>
 
@@ -75,13 +39,6 @@ export default {
   .content{
     flex:1;
   }
-}
-
-.content{
-  width:80%;
-  height:400px;
-  margin-top:30px;
-  text-align: center
 }
 
 </style>

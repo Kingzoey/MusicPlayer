@@ -21,50 +21,9 @@ const routes = [
     component: () => import('../views/MusicLibrary.vue')
   },
   {
-    path: '/musiclibraryhome',
-    name: 'Musiclibraryhome',
-    component: () => import('../views/MusicLibraryHome.vue')
-  },
-  {
-    path: '/musiclibrarysearchthird',
-    name: 'Musiclibrarysearchthird',
-    component: () => import('../views/MusicLibrarySearchThird.vue')
-  },
-  {
-    path: '/musiclibraryuser',
-    name: 'Musiclibraryuser',
-    component: () => import('../views/MusicLibraryUser.vue')
-  },
-  {
     path: '/chatroom',
     name: 'Chatroom',
     component: () => import('../views/ChatRoom.vue')
-  },
-  {
-    path: '/announcement',
-    name: 'Announcement',
-    component: () => import('../views/Announcement.vue')
-  },
-  {
-    path: '/themeconfig',
-    name: 'Themeconfig',
-    component: () => import('../views/ThemeConfig.vue')
-  },
-  {
-    path: '/musicconfig',
-    name: 'Musicconfig',
-    component: () => import('../views/MusicConfig.vue')
-  },
-
-  {
-    path: '/personalconfig',
-    name: 'Personalconfig',
-    component: () => import('../views/PersonalConfig.vue')
-  },
-  {
-    path: '/chatconfig',
-    name: 'Chatconfig',
-    component: () => import('../views/ChatConfig.vue')
   }
 ]
 

@@ -14,7 +14,7 @@
   <div class="circle">
   <a-space direction="vertical" size="middle">
 
-  <a-card hoverable style="width: 450px; background: rgba(0,0,0,.05);border: rgba(0,0,0,.8);" >
+  <a-card hoverable style="width: 450px">
     <template #cover>
       <img
         alt="example"
@@ -22,16 +22,16 @@
         height="70"
       />
     </template>
-    <a-card-meta title="Name" description="This is the description">
-      <template #avatar>
-        <a-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-      </template>
-    </a-card-meta>
     <template class="ant-card-actions" #actions>
       <setting-outlined key="setting" />
       <edit-outlined key="edit" />
       <ellipsis-outlined key="ellipsis" />
     </template>
+    <a-card-meta title="Name" description="This is the description">
+      <template #avatar>
+        <a-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+      </template>
+    </a-card-meta>
   </a-card>
 
 
@@ -51,35 +51,35 @@
     <a-progress :percent="50" :show-info="false" />
     <br/>
     <br/>
-    <a-descriptions title="User Info" layout="vertical" size="small" bordered >
-    <a-descriptions-item label="Product" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions title="User Info" layout="vertical" size="small" bordered>
+    <a-descriptions-item label="Product">
       Cloud Database
     </a-descriptions-item>
-    <a-descriptions-item label="Billing Mode" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions-item label="Billing Mode">
       Prepaid
     </a-descriptions-item>
-    <a-descriptions-item label="Automatic Renewal" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions-item label="Automatic Renewal">
       YES
     </a-descriptions-item>
-    <a-descriptions-item label="Order time" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions-item label="Order time">
       2018-04-24 18:00:00
     </a-descriptions-item>
-    <a-descriptions-item label="Usage Time" :span="2" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions-item label="Usage Time" :span="2">
       2019-04-24 18:00:00
     </a-descriptions-item>
-    <a-descriptions-item label="Status" :span="3" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions-item label="Status" :span="3">
       <a-badge status="processing" text="Running" />
     </a-descriptions-item>
-    <a-descriptions-item label="Negotiated Amount" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions-item label="Negotiated Amount">
       $80.00
     </a-descriptions-item>
-    <a-descriptions-item label="Discount" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions-item label="Discount">
       $20.00
     </a-descriptions-item>
-    <a-descriptions-item label="Official Receipts" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions-item label="Official Receipts">
       $60.00
     </a-descriptions-item>
-    <a-descriptions-item label="Config Info" style="background-color: rgba(0,0,0,.01)">
+    <a-descriptions-item label="Config Info">
       Data disk type: MongoDB
       <br />
       Database version: 3.4
@@ -98,8 +98,6 @@
 </div>
 
 </div>
-
- <Player/>
 </template>
 
 <script>
@@ -117,15 +115,7 @@ export default {
     SettingOutlined,
     EditOutlined,
     EllipsisOutlined,
-  },
-  data() {
-    return {
-      dark:false
-    }
-  },
-  created(){
-    this.dark=this.$store.state.dark;
-  },
+  }
 }
 </script>
 
@@ -157,15 +147,8 @@ export default {
   width:100%;
   .progress{
     flex:1;
-    
   }
 }
-.buttons{
- 
-  left: 0;
-  right: 0;
-}
-/deep/.ant-card-actions{
-  background-color:rgba(0,0,0,0.01);
-}
+
+
 </style>

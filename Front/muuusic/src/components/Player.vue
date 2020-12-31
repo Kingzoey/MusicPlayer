@@ -1,6 +1,6 @@
 <template>
-<div :class="playertheme == '0'?'player':'player-dark'">
-    <a-layout-footer :style="{background: 'rgba(0,0,0,.45)'}">
+<div class="player">
+    <a-layout-footer style="text-align: left" >
     <a-row>
     <a-col :span="1"></a-col>
     <a-space>
@@ -36,14 +36,11 @@
 
     </a-row>
     </a-layout-footer>
-
-
-    
 </div>
 
-    <a-layout-footer :style="{background: 'rgba(255,255,255,0)'}" >
+    <a-layout-footer :style="{background: '#fff'}">
     </a-layout-footer>
-    <a-layout-footer :style="{background: 'rgba(255,255,255,0)'}" >
+    <a-layout-footer :style="{background: '#fff'}">
     </a-layout-footer>
 
    <a-drawer
@@ -52,7 +49,6 @@
     :closable="false"
     :visible="visible"
     @close="onClose"
-    v-if="!playertheme"
   >
   <a-space>
     <a-progress 
@@ -76,39 +72,6 @@
     <a-empty />
     <a-empty />
   </a-drawer>
-     <a-drawer
-    title="播放器"
-    :placement="placement"
-    :closable="false"
-    :visible="visible"
-    @close="onClose"
-    :drawerStyle="{background: 'rgba(0,0,0,.7)'}"
-    :headerStyle="{background: 'rgba(0,0,0,.5)'}"
-    v-else
-  >
-  <a-space>
-    <a-progress 
-    type="circle"
-      :stroke-color="{
-        '0%': '#108ee9',
-        '100%': '#87d068',
-      }"
-      :percent="percent"
-    />
-    <a-button-group>
-      <a-button @click="decline" ghost>
-        <template #icon><BackwardOutlined /></template>
-      </a-button>
-      <a-button @click="increase" ghost>
-        <template #icon><ForwardOutlined /></template>
-      </a-button>
-    </a-button-group>
-  </a-space>
-    <a-empty />
-    <a-empty />
-    <a-empty />
-  </a-drawer>
-
 </template>
 
 <script>
@@ -142,22 +105,7 @@ export default {
       userName: '',
       iconLoading: false,
       percent: 0,
-      playertheme:false
     }
-  },
-  created(){
-    this.playertheme=this.$store.state.dark;
-  },
-  computed: {
-    isFollow () {
-      return this.$store.state.dark;　　//需要监听的数据
-    }
-  },
-  watch: {
-    isFollow(newVal,oldVal){
-      this.playertheme=this.$store.state.dark;
-
-    },
   },
   methods: {
     play() {
@@ -215,13 +163,6 @@ export default {
   position:fixed; bottom:0; 
   left: 0;
   right: 0;
-  background:#f5f5f5;
 } 
-.player-dark
-{
-  position:fixed; bottom:0; 
-  left: 0;
-  right: 0;
-  background:#434343;
-}
+
 </style>
