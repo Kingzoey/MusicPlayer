@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/MusicCommunity-a484b66984193f55d493398530ea893d6366c4b3.iml" filepath="$PROJECT_DIR$/.idea/MusicCommunity-a484b66984193f55d493398530ea893d6366c4b3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/SOA.iml" filepath="$PROJECT_DIR$/SOA/SOA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/service-api/comment-api/comment-api.iml" filepath="$PROJECT_DIR$/SOA/service-api/comment-api/comment-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/common/common.iml" filepath="$PROJECT_DIR$/SOA/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/common-db/common-db.iml" filepath="$PROJECT_DIR$/SOA/common-db/common-db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/eureka/eureka.iml" filepath="$PROJECT_DIR$/SOA/eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/gateway/gateway.iml" filepath="$PROJECT_DIR$/SOA/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/gateway/gatewayA/gatewayA.iml" filepath="$PROJECT_DIR$/SOA/gateway/gatewayA/gatewayA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/service/service.iml" filepath="$PROJECT_DIR$/SOA/service/service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/service-api/service-api.iml" filepath="$PROJECT_DIR$/SOA/service-api/service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/service/service-comment/service-comment.iml" filepath="$PROJECT_DIR$/SOA/service/service-comment/service-comment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SOA/service/service-song/service-song.iml" filepath="$PROJECT_DIR$/SOA/service/service-song/service-song.iml" />
+    </modules>
+  </component>
+</project>

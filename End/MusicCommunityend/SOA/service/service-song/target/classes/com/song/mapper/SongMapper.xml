@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.song.mapper.SongMapper">
+  <resultMap id="BaseResultMap" type="com.song.model.Song">
+    <id column="sid" jdbcType="DECIMAL" property="sid" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="cover" jdbcType="VARCHAR" property="cover" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="time" jdbcType="DECIMAL" property="time" />
+    <result column="usid" jdbcType="DECIMAL" property="usid" />
+    <result column="like_num" jdbcType="DECIMAL" property="likeNum" />
+    <result column="favorite_num" jdbcType="DECIMAL" property="favoriteNum" />
+    <result column="watch_num" jdbcType="DECIMAL" property="watchNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    sid, path, title, description, cover, create_time, time, usid, like_num, favorite_num, 
+    watch_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from song
+    where sid = #{sid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from song
+    where sid = #{sid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.song.model.Song">
+    insert into song (sid, path, title, 
+      description, cover, create_time, 
+      time, usid, like_num, 
+      favorite_num, watch_num)
+    values (#{sid,jdbcType=DECIMAL}, #{path,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
+      #{time,jdbcType=DECIMAL}, #{usid,jdbcType=DECIMAL}, #{likeNum,jdbcType=DECIMAL}, 
+      #{favoriteNum,jdbcType=DECIMAL}, #{watchNum,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.song.model.Song">
+    insert into song
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="cover != null">
+        cover,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="usid != null">
+        usid,
+      </if>
+      <if test="likeNum != null">
+        like_num,
+      </if>
+      <if test="favoriteNum != null">
+        favorite_num,
+      </if>
+      <if test="watchNum != null">
+        watch_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=DECIMAL},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null">
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=DECIMAL},
+      </if>
+      <if test="usid != null">
+        #{usid,jdbcType=DECIMAL},
+      </if>
+      <if test="likeNum != null">
+        #{likeNum,jdbcType=DECIMAL},
+      </if>
+      <if test="favoriteNum != null">
+        #{favoriteNum,jdbcType=DECIMAL},
+      </if>
+      <if test="watchNum != null">
+        #{watchNum,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.song.model.Song">
+    update song
+    <set>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null">
+        cover = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=DECIMAL},
+      </if>
+      <if test="usid != null">
+        usid = #{usid,jdbcType=DECIMAL},
+      </if>
+      <if test="likeNum != null">
+        like_num = #{likeNum,jdbcType=DECIMAL},
+      </if>
+      <if test="favoriteNum != null">
+        favorite_num = #{favoriteNum,jdbcType=DECIMAL},
+      </if>
+      <if test="watchNum != null">
+        watch_num = #{watchNum,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where sid = #{sid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.song.model.Song">
+    update song
+    set path = #{path,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
+      time = #{time,jdbcType=DECIMAL},
+      usid = #{usid,jdbcType=DECIMAL},
+      like_num = #{likeNum,jdbcType=DECIMAL},
+      favorite_num = #{favoriteNum,jdbcType=DECIMAL},
+      watch_num = #{watchNum,jdbcType=DECIMAL}
+    where sid = #{sid,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.comment.mapper.SongcommentMapper">
+  <resultMap id="BaseResultMap" type="com.comment.model.Songcomment">
+    <id column="scid" jdbcType="DECIMAL" property="scid" />
+    <result column="usid" jdbcType="DECIMAL" property="usid" />
+    <result column="sid" jdbcType="DECIMAL" property="sid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="like_num" jdbcType="DECIMAL" property="likeNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    scid, usid, sid, content, create_time, like_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from songcomment
+    where scid = #{scid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from songcomment
+    where scid = #{scid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.comment.model.Songcomment">
+    insert into songcomment (scid, usid, sid, 
+      content, create_time, like_num
+      )
+    values (#{scid,jdbcType=DECIMAL}, #{usid,jdbcType=DECIMAL}, #{sid,jdbcType=DECIMAL}, 
+      #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{likeNum,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.comment.model.Songcomment">
+    insert into songcomment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scid != null">
+        scid,
+      </if>
+      <if test="usid != null">
+        usid,
+      </if>
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="likeNum != null">
+        like_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scid != null">
+        #{scid,jdbcType=DECIMAL},
+      </if>
+      <if test="usid != null">
+        #{usid,jdbcType=DECIMAL},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=DECIMAL},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="likeNum != null">
+        #{likeNum,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.comment.model.Songcomment">
+    update songcomment
+    <set>
+      <if test="usid != null">
+        usid = #{usid,jdbcType=DECIMAL},
+      </if>
+      <if test="sid != null">
+        sid = #{sid,jdbcType=DECIMAL},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="likeNum != null">
+        like_num = #{likeNum,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where scid = #{scid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.comment.model.Songcomment">
+    update songcomment
+    set usid = #{usid,jdbcType=DECIMAL},
+      sid = #{sid,jdbcType=DECIMAL},
+      content = #{content,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
+      like_num = #{likeNum,jdbcType=DECIMAL}
+    where scid = #{scid,jdbcType=DECIMAL}
+  </update>
+</mapper>
