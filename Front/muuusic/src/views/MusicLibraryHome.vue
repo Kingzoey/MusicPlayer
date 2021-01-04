@@ -8,7 +8,7 @@
   <div class="content" >
   <a-row type="flex" justify="center" align="top">
   <a-col :span="11">
-  <router-link to= Musiclibraryhome>
+  <router-link to= Musiclibrarysearchthird>
   <a-button primary style="height:500px;width:300px;" v-if="!dark">
     <HomeOutlined/>
   </a-button>
@@ -21,14 +21,7 @@
  <a-divider type="vertical" style="height:500px;"></a-divider>
 
  <a-col :span="11">
-  <router-link to= Musiclibraryuser>
-  <a-button primary style="height:500px;width:300px;" v-if="!dark">
-  <RadarChartOutlined/>
-  </a-button>
-  <a-button primary ghost style="height:500px;width:300px;" v-else>
-  <RadarChartOutlined/>
-  </a-button>
-  </router-link>
+
   </a-col>
   </a-row>
   </div>
